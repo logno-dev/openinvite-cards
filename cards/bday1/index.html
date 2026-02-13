@@ -6,19 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap">
   <style>
-    body::before {
-      background-image:
-        radial-gradient(#102642, #00000000),
-        radial-gradient(circle at 70% 10%, #540046E0 4%, #00000000 25%, #00000000 100%),
-        radial-gradient(circle at 20% 90%, #848420A0 4%, #00000000 25%, #00000000 100%),
-        linear-gradient(to right, #106226, #090942);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      transform: translateZ(0);
-      willchange: transform;
-    }
-
     html,
     body {
       min-width: 100svw;
@@ -29,6 +16,23 @@
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       color: #FFFFFFDF;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: radial-gradient(#102642, #00000000),
+        radial-gradient(circle at 70% 10%, #540046E0 4%, #00000000 25%, #00000000 100%),
+        radial-gradient(circle at 20% 90%, #848420A0 4%, #00000000 25%, #00000000 100%),
+        linear-gradient(to right, #106226, #090942);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
 
     main {
       display: flex;
