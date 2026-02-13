@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html,
+    body {
+      width: 100dvw;
+      height: 100dvh;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    #title {}
+
+    #date {}
+
+    #time {}
+
+    #location {}
+
+    #address {}
+
+    #notes {}
+
+    #host_names {}
+
+    #rsvp_yes_label {}
+
+    #rsvp_no_label {}
+
+    #rsvp_maybe_label {}
+
+    #guest_name {}
+
+    #expected_adults {}
+
+    #expected_kids {}
+
+    #expected_total {}
+
+    #map_link {}
+
+    #response {}
+
+    #map_link .oi-map-embed {
+      width: 100%;
+      height: 360px;
+      border-radius: 16px;
+      border: 0;
+    }
+
+    /* OpenInvite RSVP form scaffold */
+    .oi-rsvp-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .oi-guest-name {
+      font-weight: 600;
+    }
+
+    .oi-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .oi-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .oi-input,
+    .oi-textarea {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: inherit;
+    }
+
+    .oi-rsvp-options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .oi-rsvp-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .oi-submit {
+      align-self: start;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #ff3d81;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="title"></div>
+    <div id="date"></div>
+    <div id="time"></div>
+    <div id="location"></div>
+    <div id="address"></div>
+    <div id="notes"></div>
+    <div id="host_names"></div>
+    <div id="rsvp_yes_label"></div>
+    <div id="rsvp_no_label"></div>
+    <div id="rsvp_maybe_label"></div>
+    <div id="guest_name"></div>
+    <div id="expected_adults"></div>
+    <div id="expected_kids"></div>
+    <div id="expected_total"></div>
+    <div id="map_link"></div>
+    <div id="response"></div>
+  </main>
+</body>
+
+</html>
