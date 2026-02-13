@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap">
   <style>
     html,
     body {
@@ -14,7 +15,11 @@
       padding: 0;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       color: #FFFFFFDF;
-      background-image: radial-gradient(#102642, #00000000), linear-gradient(to right, #106226, #090942);
+      background-image:
+        radial-gradient(#102642, #00000000),
+        radial-gradient(circle at 70% 10%, #540046E0 4%, #00000000 25%, #00000000 100%),
+        radial-gradient(circle at 20% 90%, #848420A0 4%, #00000000 25%, #00000000 100%),
+        linear-gradient(to right, #106226, #090942);
       background-attachment: fixed;
     }
 
@@ -28,14 +33,45 @@
     }
 
     #title {
-      font-size: 5rem;
+      font-family: "Saira Stencil One", sans-serif;
+      font-size: 4rem;
+      margin-top: 1rem;
+    }
+
+    .info-wrapper {
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      min-width: 40em;
+      gap: 1.2rem;
+      padding: 2rem;
+      background-image: linear-gradient(35deg, #00000012, #10103020);
+      background-color: #FFFFFF15;
+      backdrop-filter: blur(10px);
+      border-radius: 44px;
+      border: solid 3px #FFFFFF10;
     }
 
     #date {}
 
+    #date:before {
+      content: "When: ";
+      font-weight: bold;
+    }
+
     #time {}
 
+    #time:before {
+      content: "What time: ";
+      font-weight: bold;
+    }
+
     #location {}
+
+    #location:before {
+      content: "Where: ";
+      font-weight: bold;
+    }
 
     #address {}
 
@@ -61,7 +97,14 @@
 
     #response {}
 
-    #calendar_link {}
+    #calendar_link * {
+      color: white;
+      padding: 12px 14px;
+      font-size: .8em;
+      background-color: #208020;
+      border-radius: 24px;
+      text-decoration: none;
+    }
 
     #map_link .oi-map-embed {
       width: 100%;
@@ -129,22 +172,20 @@
 <body>
   <main>
     <div id="title"></div>
-    <div id="date"></div>
-    <div id="time"></div>
-    <div id="location"></div>
-    <div id="address"></div>
-    <div id="notes"></div>
-    <div id="host_names"></div>
-    <div id="rsvp_yes_label"></div>
-    <div id="rsvp_no_label"></div>
-    <div id="rsvp_maybe_label"></div>
-    <div id="guest_name"></div>
-    <div id="expected_adults"></div>
-    <div id="expected_kids"></div>
-    <div id="expected_total"></div>
-    <div id="calendar_link"></div>
-    <div id="map_link"></div>
-    <div id="response"></div>
+    <div class="info-wrapper">
+      <div id="notes"></div>
+      <div id="date"></div>
+      <div id="time"></div>
+      <div id="location"></div>
+      <div id="address"></div>
+      <div id="guest_name"></div>
+      <div id="expected_adults"></div>
+      <div id="expected_kids"></div>
+      <div id="expected_total"></div>
+      <div id="calendar_link"></div>
+      <div id="map_link"></div>
+      <div id="response"></div>
+    </div>
   </main>
 </body>
 
