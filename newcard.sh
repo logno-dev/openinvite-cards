@@ -18,7 +18,8 @@ fi
 
 base_file="base.html"
 cards_dir="cards"
-target_file="${cards_dir}/${name}.html"
+target_dir="${cards_dir}/${name}"
+target_file="${target_dir}/index.html"
 
 if [[ ! -f "${base_file}" ]]; then
   printf 'Error: %s not found\n' "${base_file}" >&2
@@ -30,10 +31,11 @@ if [[ ! -d "${cards_dir}" ]]; then
   exit 1
 fi
 
-if [[ -e "${target_file}" ]]; then
-  printf 'Error: %s already exists\n' "${target_file}" >&2
+if [[ -e "${target_dir}" ]]; then
+  printf 'Error: %s already exists\n' "${target_dir}" >&2
   exit 1
 fi
 
+mkdir -p "${target_dir}"
 cp "${base_file}" "${target_file}"
 printf 'Created %s\n' "${target_file}"
