@@ -5,14 +5,74 @@
   <title>OpenInvite.VIP Templates</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
   <main>
-    <h1>OpenInvite.vip Templates</h1>
-    <p>This is simply a repo of template for the OpenInvite.vip invitation system.</p>
+    <section class="hero">
+      <p class="eyebrow">OpenInvite.vip</p>
+      <h1>Invitation Templates, Ready for Injection</h1>
+      <p class="lede">
+        This repository holds standalone HTML templates used by the OpenInvite invitation system.
+        Each template includes named divs (like title, date, time, and location) so the OpenInvite
+        tool can inject event data into a beautiful design.
+      </p>
+      <div class="cta-row">
+        <div class="pill">Simple HTML + CSS</div>
+        <div class="pill">Injectable Fields</div>
+        <div class="pill">Themed Layouts</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div>
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Pick a template from the cards folder.</li>
+          <li>OpenInvite injects data into empty named divs.</li>
+          <li>Guests see a fully styled invitation card.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Template structure</h2>
+        <p>
+          Each card defines a full-page layout plus the OpenInvite RSVP scaffold styles. The injected
+          fields include title, notes, date, time, location, address, map link, calendar link, and RSVP
+          responses.
+        </p>
+        <p class="code-callout">Create a new template with: <code>./newcard.sh theme-name</code></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div>
+        <h2>Theme coverage</h2>
+        <p>
+          The collection spans celebrations, holidays, and formal events with distinctive typography
+          and color palettes.
+        </p>
+      </div>
+      <div class="tag-grid">
+        <span>Wedding</span>
+        <span>Baby Shower</span>
+        <span>Graduation</span>
+        <span>Halloween</span>
+        <span>Christmas</span>
+        <span>New Year</span>
+        <span>Summer BBQ</span>
+        <span>Corporate Gala</span>
+        <span>Housewarming</span>
+        <span>Valentine's</span>
+        <span>Thanksgiving</span>
+      </div>
+    </section>
   </main>
 
 </body>

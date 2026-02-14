@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Work+Sans:wght@300;400;600&display=swap">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #2f2a24;
+      --muted: rgba(47, 42, 36, 0.7);
+      --accent: #c07f63;
+      --accent-soft: rgba(192, 127, 99, 0.18);
+      --card: rgba(255, 255, 255, 0.82);
+      --border: rgba(192, 127, 99, 0.3);
+    }
+
+    html,
+    body {
+      min-height: 100svh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Work Sans", sans-serif;
+      color: var(--ink);
+    }
+
+    html::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 15% 20%, #f6e7db 0%, transparent 55%),
+        radial-gradient(circle at 80% 10%, #f1d2c2 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, #e8f3e1 0%, transparent 50%),
+        linear-gradient(135deg, #fdf7f2 0%, #f5efe8 100%);
+    }
+
+    main {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .card {
+      width: min(880px, 100%);
+      background: var(--card);
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 60px rgba(120, 85, 60, 0.2);
+      padding: 3rem clamp(1.5rem, 4vw, 3.5rem);
+      display: grid;
+      gap: 1.8rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5a3b2f;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .detail {
+      padding: 0.9rem 1rem;
+      background: var(--accent-soft);
+      border-radius: 18px;
+      border: 1px solid rgba(192, 127, 99, 0.2);
+    }
+
+    .detail::before {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    #date::before {
+      content: "Date";
+    }
+
+    #time::before {
+      content: "Time";
+    }
+
+    #location::before {
+      content: "Venue";
+    }
+
+    #address::before {
+      content: "Address";
+    }
+
+    #notes,
+    #notes_2,
+    #notes_3 {
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    #calendar_link * {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #map_link .oi-map-embed {
+      width: 100%;
+      height: 320px;
+      border-radius: 20px;
+      border: 0;
+    }
+
+    .attendance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* OpenInvite RSVP form scaffold */
+    .oi-rsvp-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .oi-guest-name {
+      font-weight: 600;
+    }
+
+    .oi-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .oi-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .oi-input,
+    .oi-textarea {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(192, 127, 99, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      color: inherit;
+    }
+
+    .oi-rsvp-options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .oi-rsvp-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(192, 127, 99, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .oi-submit {
+      align-self: start;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    @media (max-width: 720px) {
+      .card {
+        padding: 2.4rem 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="card">
+      <div id="title" class="title"></div>
+      <div id="notes" class="subtitle"></div>
+      <div class="details">
+        <div id="date" class="detail"></div>
+        <div id="time" class="detail"></div>
+        <div id="location" class="detail"></div>
+        <div id="address" class="detail"></div>
+      </div>
+      <div id="host_names" class="subtitle"></div>
+      <div id="calendar_link"></div>
+      <div id="notes_2" class="subtitle"></div>
+      <div class="attendance">
+        <div id="guest_name"></div>
+        <div id="expected_adults"></div>
+        <div id="expected_kids"></div>
+        <div id="expected_total"></div>
+      </div>
+      <div id="map_link"></div>
+      <div id="response"></div>
+      <div id="notes_3" class="subtitle"></div>
+      <div id="rsvp_yes_label"></div>
+      <div id="rsvp_no_label"></div>
+      <div id="rsvp_maybe_label"></div>
+    </section>
+  </main>
+</body>
+
+</html>
