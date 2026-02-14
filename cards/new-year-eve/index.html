@@ -48,7 +48,7 @@
       padding: 3rem 1.5rem 4rem;
     }
 
-    .card {
+    .celebration {
       width: min(980px, 100%);
       background: var(--card);
       border-radius: 26px;
@@ -60,7 +60,7 @@
       backdrop-filter: blur(12px);
     }
 
-    .banner {
+    .marquee {
       display: grid;
       gap: 0.6rem;
       text-align: center;
@@ -78,27 +78,32 @@
       color: var(--muted);
     }
 
-    .stats {
+    .countdown {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      align-items: center;
     }
 
-    .stat {
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(240, 195, 106, 0.35);
-      background: rgba(255, 255, 255, 0.06);
+    .ring {
+      min-height: 130px;
+      padding: 1rem;
+      border-radius: 999px;
+      border: 2px solid rgba(240, 195, 106, 0.5);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+      display: grid;
+      place-items: center;
       text-align: center;
     }
 
-    .stat::before {
+    .ring::before {
       display: block;
       font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent-2);
       margin-bottom: 0.35rem;
+      content: "";
     }
 
     #date::before {
@@ -109,6 +114,29 @@
       content: "Time";
     }
 
+    .location-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(240, 195, 106, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .pill::before {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 0.35rem;
+    }
+
     #location::before {
       content: "Location";
     }
@@ -117,7 +145,7 @@
       content: "Address";
     }
 
-    .grid {
+    .columns {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       gap: 1.4rem;
@@ -159,11 +187,6 @@
       color: var(--muted);
     }
 
-    .rsvp-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
 
     /* OpenInvite RSVP form scaffold */
     .oi-rsvp-form {
@@ -223,7 +246,7 @@
     }
 
     @media (max-width: 900px) {
-      .grid {
+      .columns {
         grid-template-columns: 1fr;
       }
     }
@@ -232,18 +255,20 @@
 
 <body>
   <main>
-    <section class="card">
-      <div class="banner">
+    <section class="celebration">
+      <div class="marquee">
         <div id="title" class="title"></div>
         <div id="notes" class="subtitle"></div>
       </div>
-      <div class="stats">
-        <div id="date" class="stat"></div>
-        <div id="time" class="stat"></div>
-        <div id="location" class="stat"></div>
-        <div id="address" class="stat"></div>
+      <div class="countdown">
+        <div id="date" class="ring"></div>
+        <div id="time" class="ring"></div>
       </div>
-      <div class="grid">
+      <div class="location-bar">
+        <div id="location" class="pill"></div>
+        <div id="address" class="pill"></div>
+      </div>
+      <div class="columns">
         <div class="panel">
           <div id="host_names" class="subtitle"></div>
           <div id="notes_2" class="subtitle"></div>

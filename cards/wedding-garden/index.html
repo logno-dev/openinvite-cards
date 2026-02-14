@@ -13,7 +13,7 @@
       --muted: rgba(47, 42, 36, 0.7);
       --accent: #c07f63;
       --accent-soft: rgba(192, 127, 99, 0.18);
-      --card: rgba(255, 255, 255, 0.82);
+      --card: rgba(255, 255, 255, 0.84);
       --border: rgba(192, 127, 99, 0.3);
     }
 
@@ -47,41 +47,48 @@
       padding: 3rem 1.5rem 4rem;
     }
 
-    .card {
-      width: min(880px, 100%);
+    .garden {
+      width: min(980px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.6rem;
       background: var(--card);
-      border-radius: 32px;
+      border-radius: 36px;
       border: 1px solid var(--border);
       box-shadow: 0 30px 60px rgba(120, 85, 60, 0.2);
-      padding: 3rem clamp(1.5rem, 4vw, 3.5rem);
-      display: grid;
-      gap: 1.8rem;
+      padding: 2.8rem clamp(1.6rem, 4vw, 3.4rem);
       backdrop-filter: blur(12px);
+    }
+
+    .left {
+      display: grid;
+      gap: 1.2rem;
+      align-content: start;
     }
 
     .title {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(2.6rem, 5vw, 4.6rem);
-      text-align: center;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #5a3b2f;
+      margin: 0;
     }
 
     .subtitle {
-      text-align: center;
-      font-size: 1.1rem;
       color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .details {
+    .timeline {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
+      gap: 0.9rem;
+      border-left: 2px solid rgba(192, 127, 99, 0.35);
+      padding-left: 1.2rem;
     }
 
     .detail {
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       background: var(--accent-soft);
       border-radius: 18px;
       border: 1px solid rgba(192, 127, 99, 0.2);
@@ -89,7 +96,7 @@
 
     .detail::before {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
@@ -112,11 +119,17 @@
       content: "Address";
     }
 
-    #notes,
-    #notes_2,
-    #notes_3 {
-      text-align: center;
-      font-size: 1.05rem;
+    .right {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .panel {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(192, 127, 99, 0.2);
+      background: rgba(255, 255, 255, 0.8);
     }
 
     #calendar_link * {
@@ -135,18 +148,19 @@
 
     #map_link .oi-map-embed {
       width: 100%;
-      height: 320px;
+      height: 280px;
       border-radius: 20px;
       border: 0;
     }
 
     .attendance {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.7rem;
       font-size: 0.95rem;
       color: var(--muted);
     }
+
 
     /* OpenInvite RSVP form scaffold */
     .oi-rsvp-form {
@@ -175,7 +189,7 @@
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid rgba(192, 127, 99, 0.3);
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.8);
       color: inherit;
     }
 
@@ -191,7 +205,7 @@
       padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid rgba(192, 127, 99, 0.3);
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
     }
 
     .oi-submit {
@@ -205,9 +219,9 @@
       cursor: pointer;
     }
 
-    @media (max-width: 720px) {
-      .card {
-        padding: 2.4rem 1.6rem;
+    @media (max-width: 860px) {
+      .garden {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -215,27 +229,31 @@
 
 <body>
   <main>
-    <section class="card">
-      <div id="title" class="title"></div>
-      <div id="notes" class="subtitle"></div>
-      <div class="details">
-        <div id="date" class="detail"></div>
-        <div id="time" class="detail"></div>
-        <div id="location" class="detail"></div>
-        <div id="address" class="detail"></div>
+    <section class="garden">
+      <div class="left">
+        <div id="title" class="title"></div>
+        <div id="notes" class="subtitle"></div>
+        <div class="timeline">
+          <div id="date" class="detail"></div>
+          <div id="time" class="detail"></div>
+          <div id="location" class="detail"></div>
+          <div id="address" class="detail"></div>
+        </div>
+        <div id="calendar_link"></div>
+        <div id="host_names" class="subtitle"></div>
       </div>
-      <div id="host_names" class="subtitle"></div>
-      <div id="calendar_link"></div>
-      <div id="notes_2" class="subtitle"></div>
-      <div class="attendance">
-        <div id="guest_name"></div>
-        <div id="expected_adults"></div>
-        <div id="expected_kids"></div>
-        <div id="expected_total"></div>
+      <div class="right">
+        <div id="notes_2" class="panel"></div>
+        <div class="panel attendance">
+          <div id="guest_name"></div>
+          <div id="expected_adults"></div>
+          <div id="expected_kids"></div>
+          <div id="expected_total"></div>
+        </div>
+        <div id="map_link" class="panel"></div>
+        <div id="response" class="panel"></div>
+        <div id="notes_3" class="panel"></div>
       </div>
-      <div id="map_link"></div>
-      <div id="response"></div>
-      <div id="notes_3" class="subtitle"></div>
     </section>
   </main>
 </body>
