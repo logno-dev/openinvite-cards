@@ -10,11 +10,11 @@
     :root {
       color-scheme: dark;
       --ink: #f7e9d7;
-      --muted: rgba(247, 233, 215, 0.75);
+      --muted: rgba(247, 233, 215, 0.72);
       --accent: #ff7a00;
-      --accent-2: #6ce88a;
-      --card: rgba(12, 10, 18, 0.85);
-      --border: rgba(255, 122, 0, 0.3);
+      --accent-2: #73f2a7;
+      --panel: rgba(12, 10, 18, 0.88);
+      --border: rgba(255, 122, 0, 0.28);
     }
 
     html,
@@ -34,8 +34,8 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: radial-gradient(circle at 15% 20%, rgba(255, 122, 0, 0.25), transparent 45%),
-        radial-gradient(circle at 85% 15%, rgba(108, 232, 138, 0.15), transparent 40%),
+      background: radial-gradient(circle at 12% 20%, rgba(255, 122, 0, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(115, 242, 167, 0.16), transparent 40%),
         linear-gradient(160deg, #0a0812 0%, #241226 100%);
     }
 
@@ -47,48 +47,54 @@
       padding: 3rem 1.5rem 4rem;
     }
 
-    .card {
-      width: min(860px, 100%);
-      background: var(--card);
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      padding: 2.8rem clamp(1.4rem, 4vw, 3rem);
+    .shell {
+      width: min(980px, 100%);
       display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       gap: 1.6rem;
+      padding: 2.6rem clamp(1.4rem, 4vw, 3rem);
+      border-radius: 26px;
+      background: var(--panel);
+      border: 1px solid var(--border);
       box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.1rem;
+      align-content: start;
     }
 
     .title {
       font-family: "Creepster", cursive;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      text-align: center;
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
       letter-spacing: 0.08em;
       color: var(--accent);
+      margin: 0;
     }
 
     .subtitle {
-      text-align: center;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
-    .details {
+    .badges {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      gap: 0.8rem;
     }
 
-    .detail {
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
+    .badge {
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
       border: 1px solid rgba(255, 122, 0, 0.35);
-      background: rgba(20, 16, 28, 0.8);
+      background: rgba(20, 16, 28, 0.7);
     }
 
-    .detail::before {
+    .badge::before {
       display: block;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent-2);
       margin-bottom: 0.35rem;
@@ -114,7 +120,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
       background: var(--accent);
       color: #120c18;
@@ -124,11 +130,23 @@
       text-transform: uppercase;
     }
 
-    #map_link .oi-map-embed {
-      width: 100%;
-      height: 320px;
+    .info {
+      display: grid;
+      gap: 1.1rem;
+      align-content: start;
+    }
+
+    .panel {
+      padding: 1rem 1.2rem;
       border-radius: 18px;
-      border: 0;
+      background: rgba(20, 16, 28, 0.75);
+      border: 1px solid rgba(255, 122, 0, 0.2);
+    }
+
+    #notes,
+    #notes_2,
+    #notes_3 {
+      color: var(--muted);
     }
 
     .attendance {
@@ -136,6 +154,19 @@
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 0.6rem;
       color: var(--muted);
+    }
+
+    #map_link .oi-map-embed {
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      border: 0;
+    }
+
+    .rsvp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     /* OpenInvite RSVP form scaffold */
@@ -194,35 +225,42 @@
       font-weight: 600;
       cursor: pointer;
     }
+
+    @media (max-width: 840px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
   <main>
-    <section class="card">
-      <div id="title" class="title"></div>
-      <div id="notes" class="subtitle"></div>
-      <div class="details">
-        <div id="date" class="detail"></div>
-        <div id="time" class="detail"></div>
-        <div id="location" class="detail"></div>
-        <div id="address" class="detail"></div>
+    <section class="shell">
+      <div class="hero">
+        <div id="title" class="title"></div>
+        <div id="notes" class="subtitle"></div>
+        <div class="badges">
+          <div id="date" class="badge"></div>
+          <div id="time" class="badge"></div>
+          <div id="location" class="badge"></div>
+          <div id="address" class="badge"></div>
+        </div>
+        <div id="calendar_link"></div>
+        <div id="host_names" class="subtitle"></div>
       </div>
-      <div id="host_names" class="subtitle"></div>
-      <div id="calendar_link"></div>
-      <div id="notes_2" class="subtitle"></div>
-      <div class="attendance">
-        <div id="guest_name"></div>
-        <div id="expected_adults"></div>
-        <div id="expected_kids"></div>
-        <div id="expected_total"></div>
+      <div class="info">
+        <div id="notes_2" class="panel"></div>
+        <div class="panel attendance">
+          <div id="guest_name"></div>
+          <div id="expected_adults"></div>
+          <div id="expected_kids"></div>
+          <div id="expected_total"></div>
+        </div>
+        <div id="map_link" class="panel"></div>
+        <div id="response" class="panel"></div>
+        <div id="notes_3" class="panel"></div>
       </div>
-      <div id="map_link"></div>
-      <div id="response"></div>
-      <div id="notes_3" class="subtitle"></div>
-      <div id="rsvp_yes_label"></div>
-      <div id="rsvp_no_label"></div>
-      <div id="rsvp_maybe_label"></div>
     </section>
   </main>
 </body>

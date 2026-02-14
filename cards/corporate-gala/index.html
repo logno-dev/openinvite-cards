@@ -12,7 +12,8 @@
       --ink: #f2f4f8;
       --muted: rgba(242, 244, 248, 0.7);
       --accent: #8fb3ff;
-      --card: rgba(12, 18, 34, 0.88);
+      --accent-2: #c7d7ff;
+      --card: rgba(12, 18, 34, 0.9);
       --border: rgba(143, 179, 255, 0.28);
     }
 
@@ -46,39 +47,41 @@
       padding: 3rem 1.5rem 4rem;
     }
 
-    .card {
-      width: min(880px, 100%);
+    .deck {
+      width: min(980px, 100%);
       background: var(--card);
       border-radius: 20px;
       border: 1px solid var(--border);
-      padding: 3rem clamp(1.6rem, 4vw, 3.5rem);
+      padding: 2.6rem clamp(1.6rem, 4vw, 3.2rem);
       display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
       gap: 1.6rem;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
       backdrop-filter: blur(14px);
     }
 
+    .rail {
+      display: grid;
+      gap: 1.1rem;
+      align-content: start;
+      border-right: 1px solid rgba(143, 179, 255, 0.2);
+      padding-right: 1.4rem;
+    }
+
     .title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.6rem, 5.4vw, 4.2rem);
-      text-align: center;
+      font-size: clamp(2.2rem, 4.6vw, 3.8rem);
       letter-spacing: 0.08em;
       color: var(--accent);
+      margin: 0;
     }
 
     .subtitle {
-      text-align: center;
       color: var(--muted);
     }
 
-    .details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
     .detail {
-      padding: 0.95rem 1.1rem;
+      padding: 0.85rem 1rem;
       border-radius: 14px;
       border: 1px solid rgba(143, 179, 255, 0.3);
       background: rgba(255, 255, 255, 0.05);
@@ -89,7 +92,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-2);
       margin-bottom: 0.35rem;
     }
 
@@ -109,6 +112,19 @@
       content: "Address";
     }
 
+    .main {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .panel {
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(143, 179, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
     #calendar_link * {
       display: inline-flex;
       align-items: center;
@@ -125,16 +141,22 @@
 
     #map_link .oi-map-embed {
       width: 100%;
-      height: 320px;
-      border-radius: 18px;
+      height: 280px;
+      border-radius: 16px;
       border: 0;
     }
 
     .attendance {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 0.6rem;
       color: var(--muted);
+    }
+
+    .rsvp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     /* OpenInvite RSVP form scaffold */
@@ -193,35 +215,47 @@
       font-weight: 600;
       cursor: pointer;
     }
+
+    @media (max-width: 900px) {
+      .deck {
+        grid-template-columns: 1fr;
+      }
+
+      .rail {
+        border-right: 0;
+        padding-right: 0;
+        border-bottom: 1px solid rgba(143, 179, 255, 0.2);
+        padding-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
   <main>
-    <section class="card">
-      <div id="title" class="title"></div>
-      <div id="notes" class="subtitle"></div>
-      <div class="details">
+    <section class="deck">
+      <div class="rail">
+        <div id="title" class="title"></div>
+        <div id="notes" class="subtitle"></div>
         <div id="date" class="detail"></div>
         <div id="time" class="detail"></div>
         <div id="location" class="detail"></div>
         <div id="address" class="detail"></div>
+        <div id="calendar_link"></div>
       </div>
-      <div id="host_names" class="subtitle"></div>
-      <div id="calendar_link"></div>
-      <div id="notes_2" class="subtitle"></div>
-      <div class="attendance">
-        <div id="guest_name"></div>
-        <div id="expected_adults"></div>
-        <div id="expected_kids"></div>
-        <div id="expected_total"></div>
+      <div class="main">
+        <div id="host_names" class="subtitle"></div>
+        <div id="notes_2" class="panel"></div>
+        <div class="panel attendance">
+          <div id="guest_name"></div>
+          <div id="expected_adults"></div>
+          <div id="expected_kids"></div>
+          <div id="expected_total"></div>
+        </div>
+        <div id="map_link" class="panel"></div>
+        <div id="response" class="panel"></div>
+        <div id="notes_3" class="panel"></div>
       </div>
-      <div id="map_link"></div>
-      <div id="response"></div>
-      <div id="notes_3" class="subtitle"></div>
-      <div id="rsvp_yes_label"></div>
-      <div id="rsvp_no_label"></div>
-      <div id="rsvp_maybe_label"></div>
     </section>
   </main>
 </body>
