@@ -153,11 +153,14 @@
       box-shadow: 0 10px 24px rgba(108, 243, 255, 0.3);
     }
 
+    #map_link iframe,
     #map_link .oi-map-embed {
-      width: 100%;
-      height: 320px;
-      border-radius: 18px;
+      width: 100% !important;
+      height: 220px !important;
+      max-width: 100%;
+      border-radius: 16px;
       border: 0;
+      display: block;
     }
 
 
@@ -265,8 +268,9 @@
         font-size: 0.78em;
       }
 
+      #map_link iframe,
       #map_link .oi-map-embed {
-        height: 240px;
+        height: 180px !important;
       }
 
       #notes {
