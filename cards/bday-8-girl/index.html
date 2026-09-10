@@ -654,10 +654,6 @@
        Keep natural height so unusually long details are never clipped.
        #response receives the exporter's QR and caption. */
     html.oi-print {
-      /* html-to-image's font scanner can skip iframe descendants because of
-         its cross-window HTMLElement check. List both used faces on the root
-         so the parent-window exporter discovers and embeds them. */
-      font-family: "Fraunces", "DM Sans", Georgia, serif;
       --oi-print-qr-size: 120px;
       --oi-print-qr-padding: 0;
     }

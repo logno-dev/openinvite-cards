@@ -1,0 +1,206 @@
+/* Shared refinements for the original OpenInvite card collection. */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:is(#title, #date, #time, #location, #address, #host_names, #guest_message) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+:is(#notes, #host_names, #calendar_link, #registry_link, #notes_2, #guest_name,
+  #expected_adults, #expected_kids, #expected_total, #map_link, #response,
+  #guest_message, #notes_3):empty { display: none; }
+
+.oi-input,
+.oi-textarea { width: 100%; max-width: 100%; font: inherit; }
+.oi-textarea { resize: vertical; }
+
+#map_link :is(iframe, .oi-map-embed) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+}
+
+:is(#calendar_link, #registry_link) :is(a, button):focus-visible,
+.oi-submit:focus-visible,
+.oi-input:focus-visible,
+.oi-textarea:focus-visible,
+.oi-rsvp-option:has(input:focus-visible) {
+  outline: 3px solid var(--accent, currentColor);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .oi-submit,
+  :is(#calendar_link, #registry_link) a {
+    transition: filter 160ms ease, transform 160ms ease;
+  }
+
+  .oi-submit:hover,
+  :is(#calendar_link, #registry_link) a:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+  }
+}
+
+/* OpenInvite 5 x 7 export: 480 x 672 CSS px, scaled to 1500 x 2100. */
+html.oi-print {
+  --oi-print-qr-size: 120px;
+  --oi-print-qr-padding: 0;
+  --oi-card-pad: 28px;
+  --oi-card-gap: 16px;
+}
+
+html.oi-print,
+html.oi-print body {
+  width: 100%;
+  min-width: 0;
+  min-height: 672px;
+}
+
+html.oi-print body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+html.oi-print main {
+  display: block;
+  width: 100%;
+  min-height: 672px;
+  margin: 0;
+  padding: 0;
+}
+
+html.oi-print main > section,
+html.oi-print main:has(> .info-wrapper) {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 144px;
+  grid-auto-rows: min-content;
+  align-content: center;
+  gap: var(--oi-card-gap);
+  width: 100%;
+  max-width: none;
+  min-height: 672px;
+  margin: 0;
+  padding: var(--oi-card-pad);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: visible;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Flatten screen-layout wrappers into one predictable print grid. */
+html.oi-print :is(.header, .marquee, .aside, .rail, .left, .right, .hero, .info,
+  .main, .content, .details, .chips, .timeline, .badges, .keyline, .countdown,
+  .location-bar, .columns, .rooms, .spread, .menu, .side, .panel, .info-wrapper) {
+  display: contents;
+}
+
+html.oi-print :is(.stripe, .seal, .tag) { display: none; }
+
+html.oi-print :is(.frame, .table, .program)::before,
+html.oi-print :is(.frame, .table, .program)::after { display: none; }
+
+html.oi-print :is(.attendance, #guest_name, #expected_adults, #expected_kids,
+  #expected_total, #notes, #notes_2, #notes_3, #guest_message, #map_link,
+  #calendar_link, #registry_link, .oi-rsvp-form) { display: none; }
+
+html.oi-print #title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: auto;
+  max-width: none;
+  margin: 0 0 22px;
+  padding: 0 0 22px;
+  border: 0;
+  border-bottom: 1px solid var(--border, currentColor);
+  background: transparent;
+  font-size: clamp(42px, 11vw, 58px);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+html.oi-print #date { grid-column: 1; grid-row: 2; }
+html.oi-print #time { grid-column: 2; grid-row: 2; }
+html.oi-print #location { grid-column: 1 / 3; grid-row: 3; }
+html.oi-print #address { grid-column: 1 / 3; grid-row: 4; }
+
+html.oi-print #host_names:not(:empty) {
+  display: block;
+  grid-column: 1 / 3;
+  grid-row: 5;
+  margin: 0;
+}
+
+html.oi-print :is(#date, #time, #location, #address) {
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border, rgb(127 127 127 / 30%));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card, var(--panel, white)) 90%, transparent);
+  font-size: 15px;
+  line-height: 1.35;
+  text-align: left;
+}
+
+html.oi-print :is(#date, #time, #location, #address)::before {
+  margin-bottom: 5px;
+  font-size: 8px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+}
+
+html.oi-print #response:not(:empty),
+html.oi-print #response.panel:not(:empty) {
+  display: block;
+  grid-column: 3;
+  grid-row: 2 / span 4;
+  align-self: center;
+  width: 144px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  border-radius: 0;
+  background: white;
+  color: #222;
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: center;
+  box-shadow: none;
+}
+
+html.oi-print #response * { max-width: 100%; }
+
+html.oi-print #response :is(img, svg, canvas) {
+  display: block;
+  width: var(--oi-print-qr-size);
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0;
+}
+
+html.oi-print :is(#title, #date, #time, #location, #address, #host_names, #response) {
+  break-inside: avoid;
+}
+
+/* Legacy bday1 places the title beside, rather than inside, its wrapper. */
+html.oi-print main:has(> .info-wrapper) > #title { grid-column: 1 / -1; }
+
+/* Keep high-tracking display faces legible in the narrow print measure. */
+html.oi-print :is(.lounge, .deck, .garden, .program, .shell, .celebration) #title {
+  letter-spacing: 0.03em;
+}
