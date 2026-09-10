@@ -8,7 +8,7 @@
   <title>Eight is great! · Birthday invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,800,100,1&display=swap">
   <style>
     :root {
@@ -79,12 +79,22 @@
     }
 
     .hero-copy {
+      grid-column: 1;
+      grid-row: 1;
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: flex-start;
       padding: clamp(28px, 5vw, 60px);
+      padding-bottom: 0;
+    }
+
+    .event-intro {
+      grid-column: 1;
+      grid-row: 2;
+      min-width: 0;
+      padding: 0 clamp(28px, 5vw, 60px) clamp(28px, 5vw, 60px);
     }
 
     .eyebrow {
@@ -132,8 +142,13 @@
     }
 
     /* Preview copy disappears automatically when OpenInvite injects these fields. */
-    #title:empty::before { content: "Let's celebrate the birthday girl!"; }
-    #notes:empty::before { content: "A little sparkle. A lot of happy. And you, to make it extra special."; }
+    #title:empty::before {
+      content: "Let's celebrate the birthday girl!";
+    }
+
+    #notes:empty::before {
+      content: "A little sparkle. A lot of happy. And you, to make it extra special.";
+    }
 
     #notes {
       margin-top: 14px;
@@ -143,6 +158,8 @@
     }
 
     .art-panel {
+      grid-column: 2;
+      grid-row: 1 / span 2;
       position: relative;
       display: grid;
       place-items: center;
@@ -176,7 +193,10 @@
       text-transform: uppercase;
     }
 
-    .party-strip .star { font-size: 17px; line-height: 1; }
+    .party-strip .star {
+      font-size: 17px;
+      line-height: 1;
+    }
 
     .content {
       display: grid;
@@ -212,17 +232,57 @@
       gap: 24px;
     }
 
-    .detail { min-width: 0; }
-    .detail + .detail { border-left: 1px solid var(--line); padding-left: 24px; }
-    .detail-label { display: block; margin-bottom: 8px; color: var(--berry); }
-    #date, #time, #location { font-size: 18px; font-weight: 600; line-height: 1.45; }
-    #address { margin-top: 6px; font-size: 14px; color: var(--muted); }
-    #date:empty::before { content: "Date to come"; }
-    #time:empty::before { content: "Time to come"; }
-    #location:empty::before { content: "Party spot to come"; }
+    .detail {
+      min-width: 0;
+    }
 
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    a { color: var(--berry); text-underline-offset: 4px; }
+    .detail+.detail {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--berry);
+    }
+
+    #date,
+    #time,
+    #location {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    #address {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    #date:empty::before {
+      content: "Date to come";
+    }
+
+    #time:empty::before {
+      content: "Time to come";
+    }
+
+    #location:empty::before {
+      content: "Party spot to come";
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    a {
+      color: var(--berry);
+      text-underline-offset: 4px;
+    }
 
     #calendar_link a,
     #registry_link a,
@@ -243,14 +303,26 @@
       transition: background 160ms ease, box-shadow 160ms ease;
     }
 
-    #registry_link a { color: var(--berry); background: transparent; }
-    #calendar_link a:hover, .oi-submit:hover { background: #852044; }
-    #registry_link a:hover { background: #f6e8ec; }
+    #registry_link a {
+      color: var(--berry);
+      background: transparent;
+    }
+
+    #calendar_link a:hover,
+    .oi-submit:hover {
+      background: #852044;
+    }
+
+    #registry_link a:hover {
+      background: #f6e8ec;
+    }
 
     #notes_2,
     #notes_3,
     #host_names,
-    #guest_message { color: var(--muted); }
+    #guest_message {
+      color: var(--muted);
+    }
 
     #notes_2:not(:empty) {
       padding: 20px 24px;
@@ -268,10 +340,28 @@
       background: #f1eaf7;
     }
 
-    .rsvp-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .rsvp-heading span { color: var(--berry); font-size: 28px; }
-    .attendance { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
-    #guest_name { font-weight: 700; }
+    .rsvp-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .rsvp-heading span {
+      color: var(--berry);
+      font-size: 28px;
+    }
+
+    .attendance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 14px;
+    }
+
+    #guest_name {
+      font-weight: 700;
+    }
 
     #map_link .oi-map-embed {
       display: block;
@@ -282,11 +372,28 @@
     }
 
     /* OpenInvite RSVP form scaffold */
-    .oi-rsvp-form { display: grid; gap: 18px; }
-    .oi-guest-name { font-weight: 700; }
-    .oi-field { display: grid; gap: 8px; min-width: 0; }
-    .oi-label { font-size: 13px; font-weight: 600; }
-    .oi-input, .oi-textarea {
+    .oi-rsvp-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .oi-guest-name {
+      font-weight: 700;
+    }
+
+    .oi-field {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .oi-label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .oi-input,
+    .oi-textarea {
       width: 100%;
       min-width: 0;
       min-height: 48px;
@@ -298,8 +405,18 @@
       font: inherit;
       font-size: 16px;
     }
-    .oi-textarea { min-height: 110px; resize: vertical; }
-    .oi-rsvp-options { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .oi-textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .oi-rsvp-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .oi-rsvp-option {
       display: flex;
       align-items: center;
@@ -311,17 +428,39 @@
       background: #fffdf9;
       cursor: pointer;
     }
-    .oi-rsvp-option:has(input:checked) { border-color: var(--berry); background: #fbe3ec; }
-    .oi-rsvp-option input { margin: 0; width: 18px; height: 18px; accent-color: var(--berry); flex-shrink: 0; }
-    .oi-submit { justify-self: start; }
-    .oi-submit:disabled { opacity: 0.55; cursor: wait; }
-    :focus-visible { outline: 3px solid #77509c; outline-offset: 4px; }
+
+    .oi-rsvp-option:has(input:checked) {
+      border-color: var(--berry);
+      background: #fbe3ec;
+    }
+
+    .oi-rsvp-option input {
+      margin: 0;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--berry);
+      flex-shrink: 0;
+    }
+
+    .oi-submit {
+      justify-self: start;
+    }
+
+    .oi-submit:disabled {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    :focus-visible {
+      outline: 3px solid #77509c;
+      outline-offset: 4px;
+    }
 
     /* Optional content leaves no blank panels when it is not supplied. */
-    .content > div:empty,
-    .actions > div:empty,
-    .attendance > div:empty,
-    .rsvp > div:empty,
+    .content>div:empty,
+    .actions>div:empty,
+    .attendance>div:empty,
+    .rsvp>div:empty,
     #address:empty,
     .actions:not(:has(a)),
     .attendance:not(:has(> div:not(:empty))),
@@ -329,48 +468,421 @@
       display: none;
     }
 
-    [id] { overflow-wrap: anywhere; }
-    [id] img { max-width: 100%; height: auto; }
-    .footer { margin: 22px 0 0; color: var(--muted); text-align: center; font-size: 10px; }
-    .footer span { margin-inline: 10px; color: var(--berry); }
+    [id] {
+      overflow-wrap: anywhere;
+    }
+
+    [id] img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .footer {
+      margin: 22px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .footer span {
+      margin-inline: 10px;
+      color: var(--berry);
+    }
 
     @media (max-width: 640px) {
-      .edition { font-size: 9px; letter-spacing: 0.1em; }
-      .invitation { border-radius: 18px; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-copy { align-items: center; padding: 36px 24px 30px; text-align: center; }
-      .eyebrow { margin-bottom: 22px; }
-      h1 { font-size: clamp(64px, 14vw, 88px); }
-      h1 span { display: inline; }
-      h1 span:last-child { display: block; }
-      .swoosh { margin: 14px 0 20px; width: 120px; }
-      #title { max-width: 24ch; }
-      #notes { max-width: 34ch; }
-      .birthday-art { max-height: 350px; padding: 6px; }
-      .party-strip { gap: 10px 14px; font-size: 9px; letter-spacing: 0.1em; }
-      .details { grid-template-columns: 1fr 1fr; gap: 22px 16px; }
-      .detail + .detail { padding-left: 16px; }
-      .detail:last-child { grid-column: 1 / -1; padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
-      .content { gap: 24px; }
-      .oi-rsvp-options { flex-direction: column; }
-      .oi-submit { width: 100%; }
+      .edition {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      .invitation {
+        border-radius: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        align-items: center;
+        padding: 36px 24px 0;
+        text-align: center;
+      }
+
+      .event-intro {
+        padding: 0 24px 30px;
+        text-align: center;
+      }
+
+      .event-intro > div {
+        margin-inline: auto;
+      }
+
+      .art-panel {
+        grid-column: 1;
+        grid-row: 3;
+      }
+
+      .eyebrow {
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        font-size: clamp(64px, 14vw, 88px);
+      }
+
+      h1 span {
+        display: inline;
+      }
+
+      h1 span:last-child {
+        display: block;
+      }
+
+      .swoosh {
+        margin: 14px 0 20px;
+        width: 120px;
+      }
+
+      #title {
+        max-width: 24ch;
+      }
+
+      #notes {
+        max-width: 34ch;
+      }
+
+      .birthday-art {
+        max-height: 350px;
+        padding: 6px;
+      }
+
+      .party-strip {
+        gap: 10px 14px;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      .details {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 16px;
+      }
+
+      .detail+.detail {
+        padding-left: 16px;
+      }
+
+      .detail:last-child {
+        grid-column: 1 / -1;
+        padding: 20px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .content {
+        gap: 24px;
+      }
+
+      .oi-rsvp-options {
+        flex-direction: column;
+      }
+
+      .oi-submit {
+        width: 100%;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    .print-hosts {
+      display: none;
     }
 
     @media print {
-      body { background: white; }
-      main { width: 100%; padding: 0; }
-      .edition, .footer { display: none; }
-      .invitation { box-shadow: none; }
-      .hero { grid-template-columns: 1fr 1fr; }
-      .hero-copy { padding: 24px; }
-      h1 { font-size: 64px; }
-      h1 span { display: block; }
-      .invitation { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .details, .rsvp { break-inside: avoid; }
+      body {
+        background: white;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+      }
+
+      .edition,
+      .footer {
+        display: none;
+      }
+
+      .invitation {
+        box-shadow: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-copy {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 64px;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .invitation {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .details,
+      .rsvp {
+        break-inside: avoid;
+      }
+    }
+    /* OpenInvite 5 × 7 export: 480 × 672 CSS px, scaled to 1500 × 2100.
+       Keep natural height so unusually long details are never clipped.
+       #response receives the exporter's QR and caption. */
+    html.oi-print {
+      /* html-to-image's font scanner can skip iframe descendants because of
+         its cross-window HTMLElement check. List both used faces on the root
+         so the parent-window exporter discovers and embeds them. */
+      font-family: "Fraunces", "DM Sans", Georgia, serif;
+      --oi-print-qr-size: 120px;
+      --oi-print-qr-padding: 0;
+    }
+
+    html.oi-print body {
+      min-width: 0;
+      background: var(--cream);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    html.oi-print main {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    html.oi-print .invitation {
+      display: grid;
+      grid-template-rows: minmax(350px, 1fr) auto auto;
+      min-height: 672px;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    html.oi-print .edition,
+    html.oi-print .footer,
+    html.oi-print .section-heading,
+    html.oi-print .rsvp-heading,
+    html.oi-print .attendance,
+    html.oi-print .actions,
+    html.oi-print #notes,
+    html.oi-print #notes_2,
+    html.oi-print #notes_3,
+    html.oi-print #guest_message,
+    html.oi-print #map_link,
+    html.oi-print #registry_link,
+    html.oi-print #calendar_link,
+    html.oi-print .oi-rsvp-form {
+      display: none;
+    }
+
+    html.oi-print .hero {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-rows: minmax(260px, 1fr) auto;
+      min-height: 350px;
+    }
+
+    html.oi-print .hero-copy {
+      grid-column: 1;
+      grid-row: 1;
+      display: block;
+      min-width: 0;
+      padding: 32px 18px 28px 24px;
+      text-align: left;
+    }
+
+    html.oi-print .eyebrow {
+      gap: 6px;
+      margin: 0 0 24px;
+      font-size: 8px;
+      letter-spacing: 0.09em;
+    }
+
+    html.oi-print .eyebrow::before {
+      width: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Specify the display face on the text-bearing spans as well as the
+       heading so export cloning does not fall back to the body font. */
+    html.oi-print h1,
+    html.oi-print h1 span {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 800;
+      font-style: normal;
+      font-optical-sizing: none;
+      font-variation-settings: "opsz" 72, "wght" 800, "SOFT" 100, "WONK" 1;
+    }
+
+    html.oi-print h1 {
+      display: block;
+      margin: 0;
+      padding: 0;
+      font-size: 48px;
+      line-height: 60px;
+      letter-spacing: -0.045em;
+    }
+
+    html.oi-print h1 span {
+      display: block;
+      min-height: 60px;
+    }
+
+    html.oi-print .swoosh {
+      display: none;
+    }
+
+    /* The event title has its own full-width row, outside the headline panel.
+       Its height is content-driven; longer names push details down normally. */
+    html.oi-print .event-intro {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding: 24px;
+      background: var(--cream);
+      text-align: left;
+    }
+
+    html.oi-print .art-panel {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    html.oi-print #title {
+      margin: 0;
+      max-width: none;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    html.oi-print .birthday-art {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      padding: 4px;
+    }
+
+    html.oi-print .party-strip {
+      gap: 12px;
+      padding: 10px 20px;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    html.oi-print .party-strip .star {
+      font-size: 12px;
+    }
+
+    html.oi-print .content {
+      grid-template-columns: minmax(0, 1fr) 144px;
+      align-items: start;
+      gap: 16px 20px;
+      padding: 26px 24px;
+    }
+
+    html.oi-print .details {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px 12px;
+    }
+
+    html.oi-print .detail+.detail {
+      padding-left: 12px;
+    }
+
+    html.oi-print .detail:last-child {
+      grid-column: 1 / -1;
+      padding: 16px 0 0;
+      border-left: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    html.oi-print .detail-label {
+      margin-bottom: 6px;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    html.oi-print #date,
+    html.oi-print #time,
+    html.oi-print #location {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    html.oi-print #address {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    html.oi-print #host_names:not(:empty) {
+      display: block;
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 12px;
+    }
+
+    html.oi-print .rsvp:has(#response:not(:empty)) {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-width: 0;
+      padding: 12px;
+      border: 0;
+      border-radius: 0;
+      background: white;
+      color: #222;
+      text-align: center;
+    }
+
+    /* Leave the QR's own quiet zone intact; never crop, tint, or round it.
+       Support image, SVG, and canvas QR renderers without assuming a class. */
+    html.oi-print #response {
+      width: 100%;
+      min-width: 0;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    html.oi-print #response * {
+      max-width: 100%;
+    }
+
+    html.oi-print #response :is(img, svg, canvas) {
+      display: block;
+      width: 120px;
+      height: auto;
+      margin-inline: auto;
+      border-radius: 0;
     }
   </style>
 </head>
@@ -384,8 +896,11 @@
           <p class="eyebrow">You're invited to celebrate</p>
           <h1><span>Eight</span> <span>is great!</span></h1>
           <svg class="swoosh" viewBox="0 0 150 20" fill="none" aria-hidden="true">
-            <path d="M3 12C40 0 96 2 145 7M28 17C65 9 105 10 127 13" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M3 12C40 0 96 2 145 7M28 17C65 9 105 10 127 13" stroke="currentColor" stroke-width="3"
+              stroke-linecap="round" />
           </svg>
+        </div>
+        <div class="event-intro">
           <div id="title"></div>
           <div id="notes"></div>
         </div>
@@ -413,14 +928,19 @@
                 <path d="M0-20C3-5 5-3 20 0 5 3 3 5 0 20-3 5-5 3-20 0-5-3-3-5 0-20Z" />
               </g>
             </defs>
-            <path d="M91 455C124 418 59 389 92 356M369 82C331 112 408 125 375 158" stroke="#9473ad" stroke-width="3" stroke-linecap="round" />
+            <path d="M91 455C124 418 59 389 92 356M369 82C331 112 408 125 375 158" stroke="#9473ad" stroke-width="3"
+              stroke-linecap="round" />
             <g transform="rotate(-9 230 275)">
               <rect x="86" y="70" width="288" height="409" rx="144" fill="#bca1d1" />
-              <rect x="76" y="59" width="288" height="409" rx="144" fill="#f9e995" stroke="#432d4c" stroke-width="1.5" />
-              <rect x="89" y="72" width="262" height="383" rx="131" stroke="#a82d59" stroke-opacity=".3" stroke-dasharray="3 6" />
+              <rect x="76" y="59" width="288" height="409" rx="144" fill="#f9e995" stroke="#432d4c"
+                stroke-width="1.5" />
+              <rect x="89" y="72" width="262" height="383" rx="131" stroke="#a82d59" stroke-opacity=".3"
+                stroke-dasharray="3 6" />
               <!-- A drawn numeral rather than a font-dependent illustration. -->
-              <path fill="#a82d59" fill-rule="evenodd" d="M220 138C159 138 129 169 129 211C129 239 144 258 165 269C136 281 119 306 119 338C119 387 159 415 220 415C281 415 321 387 321 338C321 306 304 281 275 269C296 258 311 239 311 211C311 169 281 138 220 138ZM220 184C242 184 254 197 254 215C254 234 242 247 220 247C198 247 186 234 186 215C186 197 198 184 220 184ZM220 292C245 292 261 307 261 330C261 354 245 369 220 369C195 369 179 354 179 330C179 307 195 292 220 292Z" />
-              <path d="M155 205C157 182 174 169 194 166M146 333C146 312 155 302 166 296" stroke="#dd6a89" stroke-width="7" stroke-linecap="round" />
+              <path fill="#a82d59" fill-rule="evenodd"
+                d="M220 138C159 138 129 169 129 211C129 239 144 258 165 269C136 281 119 306 119 338C119 387 159 415 220 415C281 415 321 387 321 338C321 306 304 281 275 269C296 258 311 239 311 211C311 169 281 138 220 138ZM220 184C242 184 254 197 254 215C254 234 242 247 220 247C198 247 186 234 186 215C186 197 198 184 220 184ZM220 292C245 292 261 307 261 330C261 354 245 369 220 369C195 369 179 354 179 330C179 307 195 292 220 292Z" />
+              <path d="M155 205C157 182 174 169 194 166M146 333C146 312 155 302 166 296" stroke="#dd6a89"
+                stroke-width="7" stroke-linecap="round" />
             </g>
             <use href="#daisy" transform="translate(97 133) rotate(-15) scale(1.12)" />
             <use href="#daisy" transform="translate(366 399) rotate(12) scale(1.2)" />
@@ -431,10 +951,12 @@
             <circle cx="307" cy="53" r="5" fill="#a82d59" />
             <circle cx="391" cy="296" r="5" fill="#fffcef" />
             <circle cx="50" cy="210" r="4" fill="#fffcef" />
-            <path d="m168 46 5 12m215 164 10-5M50 398l10 6m303 64-6 10" stroke="#a82d59" stroke-width="4" stroke-linecap="round" />
+            <path d="m168 46 5 12m215 164 10-5M50 398l10 6m303 64-6 10" stroke="#a82d59" stroke-width="4"
+              stroke-linecap="round" />
             <g transform="rotate(9 328 91)">
               <rect x="263" y="68" width="130" height="45" rx="22.5" fill="#a82d59" />
-              <text x="328" y="96" fill="#fffcef" font-family="'DM Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">OH, HAPPY DAY!</text>
+              <text x="328" y="96" fill="#fffcef" font-family="'DM Sans', sans-serif" font-size="12" font-weight="700"
+                letter-spacing="2" text-anchor="middle">OH, HAPPY DAY!</text>
             </g>
           </svg>
         </div>
@@ -446,18 +968,32 @@
       </div>
 
       <div class="content">
-        <div class="section-heading"><h2>The happy details</h2></div>
-        <div class="details">
-          <div class="detail"><span class="detail-label">01 / The day</span><div id="date"></div></div>
-          <div class="detail"><span class="detail-label">02 / The time</span><div id="time"></div></div>
-          <div class="detail"><span class="detail-label">03 / The place</span><div id="location"></div><div id="address"></div></div>
+        <div class="section-heading">
+          <h2>The happy details</h2>
         </div>
-        <div id="host_names"></div>
-        <div class="actions"><div id="calendar_link"></div><div id="registry_link"></div></div>
+        <div class="details">
+          <div class="detail"><span class="detail-label">01 / The day</span>
+            <div id="date"></div>
+          </div>
+          <div class="detail"><span class="detail-label">02 / The time</span>
+            <div id="time"></div>
+          </div>
+          <div class="detail"><span class="detail-label">03 / The place</span>
+            <div id="location"></div>
+            <div id="address"></div>
+          </div>
+        </div>
+        <div id="host_names" class="print-hosts"></div>
+        <div class="actions">
+          <div id="calendar_link"></div>
+          <div id="registry_link"></div>
+        </div>
         <div id="notes_2"></div>
         <div id="map_link"></div>
         <section class="rsvp" aria-labelledby="rsvp-heading">
-          <div class="rsvp-heading"><h2 id="rsvp-heading">Save a little joy for us.</h2><span aria-hidden="true">♡</span></div>
+          <div class="rsvp-heading">
+            <h2 id="rsvp-heading">Save a little joy for us.</h2><span aria-hidden="true">♡</span>
+          </div>
           <div class="attendance">
             <div id="guest_name"></div>
             <div id="expected_adults"></div>
