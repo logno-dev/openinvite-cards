@@ -177,6 +177,8 @@
       display: grid;
       place-items: center;
       min-width: 0;
+      overflow: hidden;
+      padding: clamp(18px, 3vw, 34px);
       border-left: 4px solid var(--ink);
       background-color: var(--sky);
       background-image: linear-gradient(#ffffff55 2px, transparent 2px), linear-gradient(90deg, #ffffff55 2px, transparent 2px);
@@ -185,10 +187,11 @@
 
     .birthday-art {
       display: block;
-      width: 100%;
+      width: min(88%, 400px);
       height: auto;
-      max-height: 590px;
-      padding: 4px;
+      max-width: 100%;
+      max-height: 540px;
+      object-fit: contain;
     }
 
     .party-strip {
@@ -533,6 +536,8 @@
       .art-panel {
         grid-column: 1;
         grid-row: 3;
+        min-height: 390px;
+        padding: 20px;
         border-top: 4px solid var(--ink);
         border-left: 0;
       }
@@ -546,7 +551,8 @@
       }
 
       .birthday-art {
-        max-height: 430px;
+        width: min(82vw, 330px);
+        max-height: 390px;
       }
 
       .party-strip {
@@ -680,6 +686,8 @@
     html.oi-print .art-panel {
       grid-column: 2;
       grid-row: 1;
+      min-height: 0;
+      padding: 10px;
       border-top: 0;
       border-left: 4px solid var(--ink);
     }
@@ -692,9 +700,10 @@
     }
 
     html.oi-print .birthday-art {
-      width: 100%;
-      max-height: 285px;
-      padding: 2px;
+      width: min(100%, 180px);
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
     }
 
     html.oi-print .party-strip {
@@ -808,7 +817,7 @@
           <div id="notes"></div>
         </div>
         <div class="art-panel">
-          <img src="https://cards.openinvite.vip/cards/bday-8-girl-comic/dog.png" />
+          <img class="birthday-art" src="dog.png" alt="Birthday superhero" />
         </div>
       </header>
       <div class="party-strip"><span>Cake power</span><span class="burst" aria-hidden="true">★</span><span>Hero
