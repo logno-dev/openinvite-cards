@@ -171,10 +171,6 @@
       font-size: 16px;
     }
 
-    .print-notes-copy {
-      display: none;
-    }
-
     .art-panel {
       grid-column: 2;
       grid-row: 1 / span 2;
@@ -703,13 +699,8 @@
       line-height: 1.2;
     }
 
-    html.oi-print :is(#notes, #notes_2, #notes_3) {
-      display: none !important;
-    }
-
-    html.oi-print .print-notes-copy:not(:empty) {
-      display: grid !important;
-      gap: 5px;
+    html.oi-print #notes:not(:empty) {
+      display: block !important;
       visibility: visible !important;
       opacity: 1 !important;
       max-width: none;
@@ -718,8 +709,20 @@
       line-height: 1.35;
     }
 
-    html.oi-print .print-notes-copy p {
+    html.oi-print :is(#notes_2, #notes_3):not(:empty) {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      grid-column: 1 / -1;
       margin: 0;
+      padding: 8px 10px;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      background: white;
+      color: var(--ink);
+      font-size: 11px;
+      line-height: 1.35;
+      box-shadow: 2px 2px 0 var(--ink);
     }
 
     html.oi-print .birthday-art {
@@ -838,7 +841,6 @@
         <div class="event-intro">
           <div id="title"></div>
           <div id="notes"></div>
-          <div class="print-notes-copy"></div>
         </div>
         <div class="art-panel">
           <img class="birthday-art" src="dog.png" alt="Birthday superhero" />
@@ -887,34 +889,6 @@
     </article>
     <p class="footer">Made with super powers ★ Fueled by birthday cake</p>
   </main>
-  <script>
-    (() => {
-      const printNotes = document.querySelector(".print-notes-copy");
-      const noteIds = ["notes", "notes_2", "notes_3"];
-
-      const syncPrintNotes = () => {
-        const notes = noteIds
-          .map((id) => document.getElementById(id)?.textContent.trim() || "")
-          .filter(Boolean);
-        const signature = JSON.stringify(notes);
-
-        if (printNotes.dataset.signature === signature) return;
-        printNotes.dataset.signature = signature;
-        printNotes.replaceChildren(...notes.map((note) => {
-          const paragraph = document.createElement("p");
-          paragraph.textContent = note;
-          return paragraph;
-        }));
-      };
-
-      syncPrintNotes();
-      new MutationObserver(syncPrintNotes).observe(document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-      });
-    })();
-  </script>
 </body>
 
 </html>
