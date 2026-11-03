@@ -617,7 +617,7 @@
       -webkit-print-color-adjust: exact;
     }
 
-    html.oi-print :is(.edition, .footer, .section-heading, .rsvp-heading, .attendance, .actions, #notes, #notes_2, #notes_3, #guest_message, #map_link, #registry_link, #calendar_link, .oi-rsvp-form) {
+    html.oi-print :is(.edition, .footer, .section-heading, .rsvp-heading, .attendance, .actions, #notes_2, #notes_3, #guest_message, #map_link, #registry_link, #calendar_link, .oi-rsvp-form) {
       display: none;
     }
 
@@ -697,6 +697,14 @@
       margin: 0;
       font-size: 21px;
       line-height: 1.2;
+    }
+
+    html.oi-print #notes {
+      display: block;
+      max-width: none;
+      margin-top: 7px;
+      font-size: 12px;
+      line-height: 1.35;
     }
 
     html.oi-print .birthday-art {
