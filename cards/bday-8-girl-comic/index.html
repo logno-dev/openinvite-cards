@@ -23,7 +23,11 @@
       --line: #171717;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -38,9 +42,16 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    main { width: min(1080px, 100%); margin-inline: auto; padding: clamp(16px, 4vw, 52px) clamp(12px, 3vw, 30px) 32px; }
+    main {
+      width: min(1080px, 100%);
+      margin-inline: auto;
+      padding: clamp(16px, 4vw, 52px) clamp(12px, 3vw, 30px) 32px;
+    }
 
-    .edition, .eyebrow, .detail-label, .footer {
+    .edition,
+    .eyebrow,
+    .detail-label,
+    .footer {
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .13em;
@@ -64,7 +75,11 @@
       box-shadow: 9px 10px 0 #17577f;
     }
 
-    .hero { display: grid; grid-template-columns: .94fr 1.06fr; min-height: 520px; }
+    .hero {
+      display: grid;
+      grid-template-columns: .94fr 1.06fr;
+      min-height: 520px;
+    }
 
     .hero-copy {
       grid-column: 1;
@@ -104,7 +119,10 @@
       background: var(--yellow);
     }
 
-    .eyebrow { margin: 0 0 22px; color: var(--blue); }
+    .eyebrow {
+      margin: 0 0 22px;
+      color: var(--blue);
+    }
 
     h1 {
       margin: 0;
@@ -118,15 +136,40 @@
       transform: rotate(-2deg);
     }
 
-    h1 span { display: block; }
-    h1 span:last-child { color: var(--blue); }
+    h1 span {
+      display: block;
+    }
 
-    .speed-lines { width: 145px; height: 30px; margin: 20px 0 8px; color: var(--ink); }
+    h1 span:last-child {
+      color: var(--blue);
+    }
 
-    #title { font-size: clamp(22px, 2.6vw, 29px); font-weight: 700; line-height: 1.12; }
-    #title:empty::before { content: "Calling all birthday heroes!"; }
-    #notes:empty::before { content: "Join the squad for cake, laughs, and one super-powered celebration."; }
-    #notes { max-width: 33ch; margin-top: 12px; font-size: 16px; }
+    .speed-lines {
+      width: 145px;
+      height: 30px;
+      margin: 20px 0 8px;
+      color: var(--ink);
+    }
+
+    #title {
+      font-size: clamp(22px, 2.6vw, 29px);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    #title:empty::before {
+      content: "Calling all birthday heroes!";
+    }
+
+    #notes:empty::before {
+      content: "Join the squad for cake, laughs, and one super-powered celebration.";
+    }
+
+    #notes {
+      max-width: 33ch;
+      margin-top: 12px;
+      font-size: 16px;
+    }
 
     .art-panel {
       grid-column: 2;
@@ -140,7 +183,13 @@
       background-size: 44px 44px;
     }
 
-    .birthday-art { display: block; width: 100%; height: auto; max-height: 590px; padding: 4px; }
+    .birthday-art {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 590px;
+      padding: 4px;
+    }
 
     .party-strip {
       display: flex;
@@ -158,14 +207,45 @@
       text-shadow: 2px 2px 0 var(--ink);
     }
 
-    .party-strip .burst { color: var(--yellow); font-size: 27px; }
+    .party-strip .burst {
+      color: var(--yellow);
+      font-size: 27px;
+    }
 
-    .content { display: grid; gap: 28px; padding: clamp(24px, 4.5vw, 48px); background-color: var(--paper); background-image: radial-gradient(#17171712 1px, transparent 1px); background-size: 9px 9px; }
-    .section-heading { display: flex; align-items: center; gap: 18px; }
-    .section-heading::after { content: ""; height: 4px; flex: 1; background: var(--ink); transform: rotate(-.5deg); }
+    .content {
+      display: grid;
+      gap: 28px;
+      padding: clamp(24px, 4.5vw, 48px);
+      background-color: var(--paper);
+      background-image: radial-gradient(#17171712 1px, transparent 1px);
+      background-size: 9px 9px;
+    }
 
-    h2 { margin: 0; font: 400 clamp(31px, 4vw, 42px)/1 "Bangers", Impact, sans-serif; letter-spacing: .04em; }
-    .details { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 18px; }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .section-heading::after {
+      content: "";
+      height: 4px;
+      flex: 1;
+      background: var(--ink);
+      transform: rotate(-.5deg);
+    }
+
+    h2 {
+      margin: 0;
+      font: 400 clamp(31px, 4vw, 42px)/1 "Bangers", Impact, sans-serif;
+      letter-spacing: .04em;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 18px;
+    }
 
     .detail {
       min-width: 0;
@@ -175,18 +255,61 @@
       box-shadow: 4px 4px 0 var(--ink);
       transform: rotate(-.5deg);
     }
-    .detail:nth-child(2) { background: #fff2a6; transform: rotate(.6deg); }
-    .detail:nth-child(3) { background: #d8eff9; }
-    .detail-label { display: block; margin-bottom: 7px; color: var(--red); }
-    #date, #time, #location { font-size: 18px; font-weight: 700; line-height: 1.3; }
-    #address { margin-top: 6px; font-size: 14px; }
-    #date:empty::before { content: "Date to come"; }
-    #time:empty::before { content: "Time to come"; }
-    #location:empty::before { content: "Secret HQ to come"; }
 
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    a { color: #155da8; text-underline-offset: 4px; }
-    #calendar_link a, #registry_link a, .oi-submit {
+    .detail:nth-child(2) {
+      background: #fff2a6;
+      transform: rotate(.6deg);
+    }
+
+    .detail:nth-child(3) {
+      background: #d8eff9;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--red);
+    }
+
+    #date,
+    #time,
+    #location {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    #address {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    #date:empty::before {
+      content: "Date to come";
+    }
+
+    #time:empty::before {
+      content: "Time to come";
+    }
+
+    #location:empty::before {
+      content: "Secret HQ to come";
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    a {
+      color: #155da8;
+      text-underline-offset: 4px;
+    }
+
+    #calendar_link a,
+    #registry_link a,
+    .oi-submit {
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -202,90 +325,469 @@
       text-decoration: none;
       cursor: pointer;
     }
-    #registry_link a { background: var(--yellow); color: var(--ink); }
-    #notes_2, #notes_3, #host_names, #guest_message { font-weight: 700; }
-    #notes_2:not(:empty) { padding: 18px 22px; border: 3px solid var(--ink); background: #ffe6ef; box-shadow: 4px 4px 0 var(--ink); }
 
-    .rsvp { display: grid; gap: 20px; padding: clamp(20px, 3.5vw, 30px); border: 3px solid var(--ink); background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); }
-    .rsvp-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .rsvp-heading span { color: var(--red); font: 34px/1 "Bangers", Impact, sans-serif; }
-    .attendance { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
-    #guest_name { font-weight: 700; }
-    #map_link .oi-map-embed { display: block; width: 100%; height: clamp(240px, 40vw, 360px); border: 3px solid var(--ink); border-radius: 2px; }
-
-    .oi-rsvp-form { display: grid; gap: 18px; }
-    .oi-guest-name { font-weight: 700; }
-    .oi-field { display: grid; gap: 8px; min-width: 0; }
-    .oi-label { font-size: 13px; font-weight: 700; text-transform: uppercase; }
-    .oi-input, .oi-textarea { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; border: 3px solid var(--ink); border-radius: 2px; background: white; color: var(--ink); font: inherit; font-size: 16px; }
-    .oi-textarea { min-height: 110px; resize: vertical; }
-    .oi-rsvp-options { display: flex; flex-wrap: wrap; gap: 10px; }
-    .oi-rsvp-option { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 9px 15px; border: 3px solid var(--ink); background: white; cursor: pointer; }
-    .oi-rsvp-option:has(input:checked) { background: #f6a9c6; }
-    .oi-rsvp-option input { width: 18px; height: 18px; margin: 0; accent-color: var(--red); flex-shrink: 0; }
-    .oi-submit { justify-self: start; background: var(--red); }
-    .oi-submit:disabled { opacity: .55; cursor: wait; }
-    :focus-visible { outline: 4px solid white; outline-offset: 4px; box-shadow: 0 0 0 7px var(--blue); }
-
-    .print-hosts { display: none; }
-    .content > div:empty, .actions > div:empty, .attendance > div:empty, .rsvp > div:empty,
-    #address:empty, .actions:not(:has(a)), .attendance:not(:has(> div:not(:empty))),
-    .rsvp:not(:has(#response:not(:empty), #guest_name:not(:empty), #expected_adults:not(:empty), #expected_kids:not(:empty), #expected_total:not(:empty), #guest_message:not(:empty))) { display: none; }
-    [id] { overflow-wrap: anywhere; }
-    [id] img { max-width: 100%; height: auto; }
-    .footer { margin: 22px 0 0; color: white; text-align: center; text-shadow: 2px 2px 0 var(--ink); }
-
-    @media (max-width: 640px) {
-      .edition { font-size: 9px; letter-spacing: .08em; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-copy { grid-column: 1; grid-row: 1; align-items: center; padding: 68px 24px 10px; text-align: center; }
-      .event-intro { grid-column: 1; grid-row: 2; padding: 12px 24px 30px; text-align: center; }
-      .event-intro > div { margin-inline: auto; }
-      .art-panel { grid-column: 1; grid-row: 3; border-top: 4px solid var(--ink); border-left: 0; }
-      h1 { font-size: clamp(72px, 21vw, 100px); }
-      h1 span:first-child { display: inline; }
-      .birthday-art { max-height: 430px; }
-      .party-strip { gap: 8px 12px; font-size: 18px; }
-      .details { grid-template-columns: 1fr; }
-      .detail { transform: none !important; }
-      .oi-rsvp-options { flex-direction: column; }
-      .oi-submit { width: 100%; }
+    #registry_link a {
+      background: var(--yellow);
+      color: var(--ink);
     }
 
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+    #notes_2,
+    #notes_3,
+    #host_names,
+    #guest_message {
+      font-weight: 700;
+    }
+
+    #notes_2:not(:empty) {
+      padding: 18px 22px;
+      border: 3px solid var(--ink);
+      background: #ffe6ef;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .rsvp {
+      display: grid;
+      gap: 20px;
+      padding: clamp(20px, 3.5vw, 30px);
+      border: 3px solid var(--ink);
+      background: var(--yellow);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .rsvp-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .rsvp-heading span {
+      color: var(--red);
+      font: 34px/1 "Bangers", Impact, sans-serif;
+    }
+
+    .attendance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 14px;
+    }
+
+    #guest_name {
+      font-weight: 700;
+    }
+
+    #map_link .oi-map-embed {
+      display: block;
+      width: 100%;
+      height: clamp(240px, 40vw, 360px);
+      border: 3px solid var(--ink);
+      border-radius: 2px;
+    }
+
+    .oi-rsvp-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .oi-guest-name {
+      font-weight: 700;
+    }
+
+    .oi-field {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .oi-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .oi-input,
+    .oi-textarea {
+      width: 100%;
+      min-width: 0;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 3px solid var(--ink);
+      border-radius: 2px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .oi-textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .oi-rsvp-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .oi-rsvp-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 9px 15px;
+      border: 3px solid var(--ink);
+      background: white;
+      cursor: pointer;
+    }
+
+    .oi-rsvp-option:has(input:checked) {
+      background: #f6a9c6;
+    }
+
+    .oi-rsvp-option input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .oi-submit {
+      justify-self: start;
+      background: var(--red);
+    }
+
+    .oi-submit:disabled {
+      opacity: .55;
+      cursor: wait;
+    }
+
+    :focus-visible {
+      outline: 4px solid white;
+      outline-offset: 4px;
+      box-shadow: 0 0 0 7px var(--blue);
+    }
+
+    .print-hosts {
+      display: none;
+    }
+
+    .content>div:empty,
+    .actions>div:empty,
+    .attendance>div:empty,
+    .rsvp>div:empty,
+    #address:empty,
+    .actions:not(:has(a)),
+    .attendance:not(:has(> div:not(:empty))),
+    .rsvp:not(:has(#response:not(:empty), #guest_name:not(:empty), #expected_adults:not(:empty), #expected_kids:not(:empty), #expected_total:not(:empty), #guest_message:not(:empty))) {
+      display: none;
+    }
+
+    [id] {
+      overflow-wrap: anywhere;
+    }
+
+    [id] img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .footer {
+      margin: 22px 0 0;
+      color: white;
+      text-align: center;
+      text-shadow: 2px 2px 0 var(--ink);
+    }
+
+    @media (max-width: 640px) {
+      .edition {
+        font-size: 9px;
+        letter-spacing: .08em;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: center;
+        padding: 68px 24px 10px;
+        text-align: center;
+      }
+
+      .event-intro {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 12px 24px 30px;
+        text-align: center;
+      }
+
+      .event-intro>div {
+        margin-inline: auto;
+      }
+
+      .art-panel {
+        grid-column: 1;
+        grid-row: 3;
+        border-top: 4px solid var(--ink);
+        border-left: 0;
+      }
+
+      h1 {
+        font-size: clamp(72px, 21vw, 100px);
+      }
+
+      h1 span:first-child {
+        display: inline;
+      }
+
+      .birthday-art {
+        max-height: 430px;
+      }
+
+      .party-strip {
+        gap: 8px 12px;
+        font-size: 18px;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      .detail {
+        transform: none !important;
+      }
+
+      .oi-rsvp-options {
+        flex-direction: column;
+      }
+
+      .oi-submit {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
 
     /* OpenInvite 5 × 7 export at 480 × 672 CSS px. */
-    html.oi-print { --oi-print-qr-size: 120px; --oi-print-qr-padding: 0; }
-    html.oi-print body { min-width: 0; background: var(--paper); font-size: 13px; line-height: 1.35; }
-    html.oi-print main { width: 100%; margin: 0; padding: 0; }
-    html.oi-print .invitation { display: grid; grid-template-rows: minmax(350px, 1fr) auto auto; min-height: 672px; overflow: visible; border: 0; border-radius: 0; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-    html.oi-print :is(.edition, .footer, .section-heading, .rsvp-heading, .attendance, .actions, #notes, #notes_2, #notes_3, #guest_message, #map_link, #registry_link, #calendar_link, .oi-rsvp-form) { display: none; }
-    html.oi-print .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-rows: minmax(260px, 1fr) auto; min-height: 350px; }
-    html.oi-print .hero-copy { grid-column: 1; grid-row: 1; display: block; padding: 46px 16px 22px 22px; text-align: left; }
-    html.oi-print .hero-copy::after { top: 16px; right: 14px; padding: 3px 8px; font-size: 17px; box-shadow: 2px 2px 0 var(--ink); }
-    html.oi-print .eyebrow { margin: 0 0 22px; font-size: 8px; letter-spacing: .08em; }
-    html.oi-print h1, html.oi-print h1 span { font-family: "Bangers", Impact, sans-serif; font-weight: 400; }
-    html.oi-print h1 { display: block; margin: 0; padding: 0; font-size: 57px; line-height: 47px; letter-spacing: .01em; -webkit-text-stroke: 2px var(--ink); text-shadow: 3px 4px 0 white, 5px 6px 0 var(--ink); }
-    html.oi-print h1 span { display: block; min-height: 47px; }
-    html.oi-print .speed-lines { display: none; }
-    html.oi-print .event-intro { grid-column: 1 / -1; grid-row: 2; padding: 20px 22px; background: var(--yellow); text-align: left; }
-    html.oi-print .art-panel { grid-column: 2; grid-row: 1; border-top: 0; border-left: 4px solid var(--ink); }
-    html.oi-print #title { max-width: none; margin: 0; font-size: 21px; line-height: 1.2; }
-    html.oi-print .birthday-art { width: 100%; max-height: 285px; padding: 2px; }
-    html.oi-print .party-strip { gap: 10px; padding: 9px 16px 7px; border-block-width: 3px; font-size: 15px; }
-    html.oi-print .party-strip .burst { font-size: 15px; }
-    html.oi-print .content { grid-template-columns: minmax(0, 1fr) 144px; align-items: start; gap: 15px 18px; padding: 22px; }
-    html.oi-print .details { grid-column: 1; grid-row: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
-    html.oi-print .detail { padding: 10px; border-width: 2px; box-shadow: 2px 2px 0 var(--ink); transform: none; }
-    html.oi-print .detail:last-child { grid-column: 1 / -1; }
-    html.oi-print .detail-label { margin-bottom: 5px; font-size: 8px; letter-spacing: .08em; }
-    html.oi-print :is(#date, #time, #location) { font-size: 13px; line-height: 1.25; }
-    html.oi-print #address { margin-top: 5px; font-size: 11px; line-height: 1.3; }
-    html.oi-print #host_names:not(:empty) { display: block; grid-column: 1; grid-row: 2; font-size: 12px; }
-    html.oi-print .rsvp:has(#response:not(:empty)) { display: block; grid-column: 2; grid-row: 1 / span 2; min-width: 0; padding: 12px; border: 0; background: white; box-shadow: none; color: #222; text-align: center; }
-    html.oi-print #response { width: 100%; min-width: 0; font-size: 11px; line-height: 1.35; }
-    html.oi-print #response * { max-width: 100%; }
-    html.oi-print #response :is(img, svg, canvas) { display: block; width: 120px; height: auto; margin-inline: auto; border-radius: 0; }
+    html.oi-print {
+      --oi-print-qr-size: 120px;
+      --oi-print-qr-padding: 0;
+    }
+
+    html.oi-print body {
+      min-width: 0;
+      background: var(--paper);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    html.oi-print main {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    html.oi-print .invitation {
+      display: grid;
+      grid-template-rows: minmax(350px, 1fr) auto auto;
+      min-height: 672px;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    html.oi-print :is(.edition, .footer, .section-heading, .rsvp-heading, .attendance, .actions, #notes, #notes_2, #notes_3, #guest_message, #map_link, #registry_link, #calendar_link, .oi-rsvp-form) {
+      display: none;
+    }
+
+    html.oi-print .hero {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      grid-template-rows: minmax(260px, 1fr) auto;
+      min-height: 350px;
+    }
+
+    html.oi-print .hero-copy {
+      grid-column: 1;
+      grid-row: 1;
+      display: block;
+      padding: 46px 16px 22px 22px;
+      text-align: left;
+    }
+
+    html.oi-print .hero-copy::after {
+      top: 16px;
+      right: 14px;
+      padding: 3px 8px;
+      font-size: 17px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    html.oi-print .eyebrow {
+      margin: 0 0 22px;
+      font-size: 8px;
+      letter-spacing: .08em;
+    }
+
+    html.oi-print h1,
+    html.oi-print h1 span {
+      font-family: "Bangers", Impact, sans-serif;
+      font-weight: 400;
+    }
+
+    html.oi-print h1 {
+      display: block;
+      margin: 0;
+      padding: 0;
+      font-size: 57px;
+      line-height: 47px;
+      letter-spacing: .01em;
+      -webkit-text-stroke: 2px var(--ink);
+      text-shadow: 3px 4px 0 white, 5px 6px 0 var(--ink);
+    }
+
+    html.oi-print h1 span {
+      display: block;
+      min-height: 47px;
+    }
+
+    html.oi-print .speed-lines {
+      display: none;
+    }
+
+    html.oi-print .event-intro {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding: 20px 22px;
+      background: var(--yellow);
+      text-align: left;
+    }
+
+    html.oi-print .art-panel {
+      grid-column: 2;
+      grid-row: 1;
+      border-top: 0;
+      border-left: 4px solid var(--ink);
+    }
+
+    html.oi-print #title {
+      max-width: none;
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    html.oi-print .birthday-art {
+      width: 100%;
+      max-height: 285px;
+      padding: 2px;
+    }
+
+    html.oi-print .party-strip {
+      gap: 10px;
+      padding: 9px 16px 7px;
+      border-block-width: 3px;
+      font-size: 15px;
+    }
+
+    html.oi-print .party-strip .burst {
+      font-size: 15px;
+    }
+
+    html.oi-print .content {
+      grid-template-columns: minmax(0, 1fr) 144px;
+      align-items: start;
+      gap: 15px 18px;
+      padding: 22px;
+    }
+
+    html.oi-print .details {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    html.oi-print .detail {
+      padding: 10px;
+      border-width: 2px;
+      box-shadow: 2px 2px 0 var(--ink);
+      transform: none;
+    }
+
+    html.oi-print .detail:last-child {
+      grid-column: 1 / -1;
+    }
+
+    html.oi-print .detail-label {
+      margin-bottom: 5px;
+      font-size: 8px;
+      letter-spacing: .08em;
+    }
+
+    html.oi-print :is(#date, #time, #location) {
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    html.oi-print #address {
+      margin-top: 5px;
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    html.oi-print #host_names:not(:empty) {
+      display: block;
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 12px;
+    }
+
+    html.oi-print .rsvp:has(#response:not(:empty)) {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-width: 0;
+      padding: 12px;
+      border: 0;
+      background: white;
+      box-shadow: none;
+      color: #222;
+      text-align: center;
+    }
+
+    html.oi-print #response {
+      width: 100%;
+      min-width: 0;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    html.oi-print #response * {
+      max-width: 100%;
+    }
+
+    html.oi-print #response :is(img, svg, canvas) {
+      display: block;
+      width: 120px;
+      height: auto;
+      margin-inline: auto;
+      border-radius: 0;
+    }
   </style>
 </head>
 
@@ -301,68 +803,94 @@
             <path d="M4 9h70M28 19h108M8 27h46" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
           </svg>
         </div>
-        <div class="event-intro"><div id="title"></div><div id="notes"></div></div>
+        <div class="event-intro">
+          <div id="title"></div>
+          <div id="notes"></div>
+        </div>
         <div class="art-panel">
+          <img src="dog.jpg" />
           <!-- Original, intentionally loose kid-comic vector artwork. -->
-          <svg class="birthday-art" viewBox="0 0 500 560" fill="none" aria-hidden="true">
-            <defs>
-              <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#2369ad" opacity=".32" /></pattern>
-              <path id="zap" d="M0-24 8-8 26-12 13 3 26 17 7 13 0 30-7 13-26 17-13 3-26-12-8-8Z" />
-            </defs>
-            <circle cx="252" cy="278" r="212" fill="#f7cf33" stroke="#171717" stroke-width="5" />
-            <circle cx="252" cy="278" r="198" fill="url(#dots)" />
-            <path d="M47 391 5 408l37 12-23 34 43-16 7 39 18-40 31 23-12-40 41-7-39-17 23-31-39 14-5-40-18 38-32-24Z" fill="#fff" stroke="#171717" stroke-width="4" stroke-linejoin="round" />
-            <text x="75" y="419" fill="#ed3b32" stroke="#171717" stroke-width="2" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="43" text-anchor="middle" transform="rotate(-8 75 419)">YAY!</text>
-            <g transform="rotate(4 270 298)" stroke="#171717" stroke-linecap="round" stroke-linejoin="round">
-              <!-- cape -->
-              <path d="M203 252c-58 31-82 114-72 197 36-12 70-9 103 13l36-178-67-32Z" fill="#ed3b32" stroke-width="6" />
-              <path d="M334 257c60 30 86 98 94 162-39-17-73-12-103 10l-29-145 38-27Z" fill="#f38ab3" stroke-width="6" />
-              <!-- legs and boots -->
-              <path d="m223 391-17 95 45 3 19-93m45-2 21 90 46-6-28-100" fill="#ffd9b3" stroke-width="7" />
-              <path d="M205 472c16 10 31 11 48 1l-2 37-64 1c-5-17 1-30 18-39Zm129-3c15 9 31 8 46-3l18 34-61 12-3-43Z" fill="#2f76d2" stroke-width="6" />
-              <!-- body -->
-              <path d="M196 246c17-22 42-32 76-31 36 0 64 13 81 39l-7 142c-38 20-79 21-125 1l-25-151Z" fill="#2f76d2" stroke-width="7" />
-              <path d="M209 315c43 15 87 13 132-4l-2 42c-40 17-79 18-119 2l-11-40Z" fill="#ed3b32" stroke-width="5" />
-              <circle cx="275" cy="286" r="45" fill="#ffd83d" stroke-width="6" />
-              <text x="275" y="316" fill="#ed3b32" stroke="#171717" stroke-width="2" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="79" text-anchor="middle">8</text>
-              <!-- arms -->
-              <path d="M207 254c-31 9-53 29-68 61l-34-44-32 25c24 48 50 79 78 83 27-4 51-25 73-62m119-53c34 11 57 34 68 69l28-41 34 23c-17 46-41 75-71 83-29-1-54-21-73-59" fill="#ffd9b3" stroke-width="7" />
-              <path d="m73 296 32-25-17-27c-9-13-28-4-22 11-16-4-23 17-8 24-11 8-2 26 15 17Zm400 19-34-23 14-29c7-15 28-8 23 8 16-6 25 14 10 23 12 7 4 27-13 21Z" fill="#ffd9b3" stroke-width="6" />
-              <!-- head and hair -->
-              <circle cx="272" cy="153" r="92" fill="#6b3b24" stroke-width="7" />
-              <path d="M201 151c4-61 35-91 77-89 51 3 83 43 80 99l-17 70-139-7-1-73Z" fill="#6b3b24" stroke-width="6" />
-              <path d="M215 143c4-45 31-68 65-66 40 2 64 32 63 77l-8 42c-15 30-37 44-67 42-31-1-52-20-62-52l9-43Z" fill="#ffd9b3" stroke-width="7" />
-              <path d="M204 142c29-4 53-22 72-53 19 34 43 53 73 58l4-46c-14-43-52-65-94-60-42 5-69 38-66 83l11 18Z" fill="#6b3b24" stroke-width="6" />
-              <!-- mask and face -->
-              <path d="M217 150c32-14 72-12 118 5l-9 45c-39 13-73 10-105-7l-4-43Z" fill="#f38ab3" stroke-width="6" />
-              <ellipse cx="248" cy="171" rx="8" ry="11" fill="#171717" stroke="none" />
-              <ellipse cx="305" cy="174" rx="8" ry="11" fill="#171717" stroke="none" />
-              <path d="M252 207q21 18 43 1" stroke-width="5" />
-              <!-- pigtails -->
-              <path d="M200 109c-37-19-65 5-58 37 5 23 27 31 49 19m159-49c35-21 65 1 60 34-3 23-25 33-47 22" fill="#6b3b24" stroke-width="7" />
-              <path d="m178 114 25 18-25 20-16-21 16-17Zm194 4-24 19 26 18 14-22-16-15Z" fill="#ed3b32" stroke-width="5" />
-            </g>
-            <use href="#zap" transform="translate(427 111) scale(.85)" fill="#fff" stroke="#171717" stroke-width="4" />
-            <text x="427" y="121" fill="#2f76d2" stroke="#171717" stroke-width="1.5" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="27" text-anchor="middle" transform="rotate(8 427 121)">ZAP!</text>
-            <path d="m63 105 39 17m-52 13 38 2m326 335 34 23m-18-43 38 8" stroke="#171717" stroke-width="6" stroke-linecap="round" />
-          </svg>
+          <!-- <svg class="birthday-art" viewBox="0 0 500 560" fill="none" aria-hidden="true"> -->
+          <!--   <defs> -->
+          <!--     <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#2369ad" opacity=".32" /></pattern> -->
+          <!--     <path id="zap" d="M0-24 8-8 26-12 13 3 26 17 7 13 0 30-7 13-26 17-13 3-26-12-8-8Z" /> -->
+          <!--   </defs> -->
+          <!--   <circle cx="252" cy="278" r="212" fill="#f7cf33" stroke="#171717" stroke-width="5" /> -->
+          <!--   <circle cx="252" cy="278" r="198" fill="url(#dots)" /> -->
+          <!--   <path d="M47 391 5 408l37 12-23 34 43-16 7 39 18-40 31 23-12-40 41-7-39-17 23-31-39 14-5-40-18 38-32-24Z" fill="#fff" stroke="#171717" stroke-width="4" stroke-linejoin="round" /> -->
+          <!--   <text x="75" y="419" fill="#ed3b32" stroke="#171717" stroke-width="2" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="43" text-anchor="middle" transform="rotate(-8 75 419)">YAY!</text> -->
+          <!--   <g transform="rotate(4 270 298)" stroke="#171717" stroke-linecap="round" stroke-linejoin="round"> -->
+          <!--     <!-- cape --> -->
+          <!--     <path d="M203 252c-58 31-82 114-72 197 36-12 70-9 103 13l36-178-67-32Z" fill="#ed3b32" stroke-width="6" /> -->
+          <!--     <path d="M334 257c60 30 86 98 94 162-39-17-73-12-103 10l-29-145 38-27Z" fill="#f38ab3" stroke-width="6" /> -->
+          <!--     <!-- legs and boots --> -->
+          <!--     <path d="m223 391-17 95 45 3 19-93m45-2 21 90 46-6-28-100" fill="#ffd9b3" stroke-width="7" /> -->
+          <!--     <path d="M205 472c16 10 31 11 48 1l-2 37-64 1c-5-17 1-30 18-39Zm129-3c15 9 31 8 46-3l18 34-61 12-3-43Z" fill="#2f76d2" stroke-width="6" /> -->
+          <!--     <!-- body --> -->
+          <!--     <path d="M196 246c17-22 42-32 76-31 36 0 64 13 81 39l-7 142c-38 20-79 21-125 1l-25-151Z" fill="#2f76d2" stroke-width="7" /> -->
+          <!--     <path d="M209 315c43 15 87 13 132-4l-2 42c-40 17-79 18-119 2l-11-40Z" fill="#ed3b32" stroke-width="5" /> -->
+          <!--     <circle cx="275" cy="286" r="45" fill="#ffd83d" stroke-width="6" /> -->
+          <!--     <text x="275" y="316" fill="#ed3b32" stroke="#171717" stroke-width="2" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="79" text-anchor="middle">8</text> -->
+          <!--     <!-- arms --> -->
+          <!--     <path d="M207 254c-31 9-53 29-68 61l-34-44-32 25c24 48 50 79 78 83 27-4 51-25 73-62m119-53c34 11 57 34 68 69l28-41 34 23c-17 46-41 75-71 83-29-1-54-21-73-59" fill="#ffd9b3" stroke-width="7" /> -->
+          <!--     <path d="m73 296 32-25-17-27c-9-13-28-4-22 11-16-4-23 17-8 24-11 8-2 26 15 17Zm400 19-34-23 14-29c7-15 28-8 23 8 16-6 25 14 10 23 12 7 4 27-13 21Z" fill="#ffd9b3" stroke-width="6" /> -->
+          <!--     <!-- head and hair --> -->
+          <!--     <circle cx="272" cy="153" r="92" fill="#6b3b24" stroke-width="7" /> -->
+          <!--     <path d="M201 151c4-61 35-91 77-89 51 3 83 43 80 99l-17 70-139-7-1-73Z" fill="#6b3b24" stroke-width="6" /> -->
+          <!--     <path d="M215 143c4-45 31-68 65-66 40 2 64 32 63 77l-8 42c-15 30-37 44-67 42-31-1-52-20-62-52l9-43Z" fill="#ffd9b3" stroke-width="7" /> -->
+          <!--     <path d="M204 142c29-4 53-22 72-53 19 34 43 53 73 58l4-46c-14-43-52-65-94-60-42 5-69 38-66 83l11 18Z" fill="#6b3b24" stroke-width="6" /> -->
+          <!--     <!-- mask and face --> -->
+          <!--     <path d="M217 150c32-14 72-12 118 5l-9 45c-39 13-73 10-105-7l-4-43Z" fill="#f38ab3" stroke-width="6" /> -->
+          <!--     <ellipse cx="248" cy="171" rx="8" ry="11" fill="#171717" stroke="none" /> -->
+          <!--     <ellipse cx="305" cy="174" rx="8" ry="11" fill="#171717" stroke="none" /> -->
+          <!--     <path d="M252 207q21 18 43 1" stroke-width="5" /> -->
+          <!--     <!-- pigtails --> -->
+          <!--     <path d="M200 109c-37-19-65 5-58 37 5 23 27 31 49 19m159-49c35-21 65 1 60 34-3 23-25 33-47 22" fill="#6b3b24" stroke-width="7" /> -->
+          <!--     <path d="m178 114 25 18-25 20-16-21 16-17Zm194 4-24 19 26 18 14-22-16-15Z" fill="#ed3b32" stroke-width="5" /> -->
+          <!--   </g> -->
+          <!--   <use href="#zap" transform="translate(427 111) scale(.85)" fill="#fff" stroke="#171717" stroke-width="4" /> -->
+          <!--   <text x="427" y="121" fill="#2f76d2" stroke="#171717" stroke-width="1.5" paint-order="stroke" font-family="Bangers, Impact, sans-serif" font-size="27" text-anchor="middle" transform="rotate(8 427 121)">ZAP!</text> -->
+          <!--   <path d="m63 105 39 17m-52 13 38 2m326 335 34 23m-18-43 38 8" stroke="#171717" stroke-width="6" stroke-linecap="round" /> -->
+          <!-- </svg> -->
         </div>
       </header>
-      <div class="party-strip"><span>Cake power</span><span class="burst" aria-hidden="true">★</span><span>Hero games</span><span class="burst" aria-hidden="true">★</span><span>Big laughs</span></div>
+      <div class="party-strip"><span>Cake power</span><span class="burst" aria-hidden="true">★</span><span>Hero
+          games</span><span class="burst" aria-hidden="true">★</span><span>Big laughs</span></div>
       <div class="content">
-        <div class="section-heading"><h2>The secret mission</h2></div>
+        <div class="section-heading">
+          <h2>The secret mission</h2>
+        </div>
         <div class="details">
-          <div class="detail"><span class="detail-label">01 / Mission date</span><div id="date"></div></div>
-          <div class="detail"><span class="detail-label">02 / Launch time</span><div id="time"></div></div>
-          <div class="detail"><span class="detail-label">03 / Secret HQ</span><div id="location"></div><div id="address"></div></div>
+          <div class="detail"><span class="detail-label">01 / Mission date</span>
+            <div id="date"></div>
+          </div>
+          <div class="detail"><span class="detail-label">02 / Launch time</span>
+            <div id="time"></div>
+          </div>
+          <div class="detail"><span class="detail-label">03 / Secret HQ</span>
+            <div id="location"></div>
+            <div id="address"></div>
+          </div>
         </div>
         <div id="host_names" class="print-hosts"></div>
-        <div class="actions"><div id="calendar_link"></div><div id="registry_link"></div></div>
-        <div id="notes_2"></div><div id="map_link"></div>
+        <div class="actions">
+          <div id="calendar_link"></div>
+          <div id="registry_link"></div>
+        </div>
+        <div id="notes_2"></div>
+        <div id="map_link"></div>
         <section class="rsvp" aria-labelledby="rsvp-heading">
-          <div class="rsvp-heading"><h2 id="rsvp-heading">Will you join the hero squad?</h2><span aria-hidden="true">POW!</span></div>
-          <div class="attendance"><div id="guest_name"></div><div id="expected_adults"></div><div id="expected_kids"></div><div id="expected_total"></div></div>
-          <div id="response"></div><div id="guest_message"></div>
+          <div class="rsvp-heading">
+            <h2 id="rsvp-heading">Will you join the hero squad?</h2><span aria-hidden="true">POW!</span>
+          </div>
+          <div class="attendance">
+            <div id="guest_name"></div>
+            <div id="expected_adults"></div>
+            <div id="expected_kids"></div>
+            <div id="expected_total"></div>
+          </div>
+          <div id="response"></div>
+          <div id="guest_message"></div>
         </section>
         <div id="notes_3"></div>
       </div>
